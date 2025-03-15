@@ -13,7 +13,7 @@ const VehicleCard = ({ vehicle, userId }) => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get(`api/bookings/${vehicle._id}`);
+        const response = await axios.get(`https://vehicle-rentals-backend.onrender.com/api/bookings/${vehicle._id}`);
         setExistingBookings(response.data);
       } catch (error) {
         console.error("Error fetching bookings:", error);
@@ -59,7 +59,7 @@ const VehicleCard = ({ vehicle, userId }) => {
     }
 
     try {
-      await axios.post("/api/bookings", {
+      await axios.post("https://vehicle-rentals-backend.onrender.com/api/bookings", {
         userId,
         vehicleId: vehicle._id,
         startDate,
