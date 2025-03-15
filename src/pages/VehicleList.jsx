@@ -9,7 +9,7 @@ const VehicleList = ({ userId }) => {
   useEffect(() => {
     const fetchVehicles = async () => {
       try {
-        const response = await axios.get("/api/vehicles");
+        const response = await axios.get("https://vehicle-rentals-backend.onrender.com/api/vehicles");
         setVehicles(response.data);
       } catch (error) {
         console.error("Error fetching vehicles:", error);
