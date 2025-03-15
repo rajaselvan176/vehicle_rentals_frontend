@@ -7,7 +7,7 @@ const MyBookings = ({ userId }) => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get(`/api/bookings/user/${userId}`);
+        const response = await axios.get(`https://vehicle-rentals-backend.onrender.com/api/bookings/user/${userId}`);
         setBookings(response.data);
       } catch (error) {
         console.error("Error fetching bookings:", error);
@@ -29,7 +29,7 @@ const MyBookings = ({ userId }) => {
             <button
               className="bg-red-500 text-white p-2 mt-2 rounded"
               onClick={async () => {
-                await axios.delete(`/api/bookings/${booking.vehicle._id}/${booking._id}`);
+                await axios.delete(`https://vehicle-rentals-backend.onrender.com/api/bookings/${booking.vehicle._id}/${booking._id}`);
                 setBookings(bookings.filter(b => b._id !== booking._id));
               }}
             >
